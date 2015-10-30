@@ -74,15 +74,17 @@ public class StackEx {
             case PLUS:
             case MINUS:
             case TIMES:
-            case DIVIDE:break;
+            case DIVIDE:
+            case factorial:break;
             case SQUARE:
             case Lbracket:
             case SIN:
             case COS:
             case TAN:
             case COT:stack.pop();break;
-            case Rbracket:
-            case factorial:return false;
+            case Rbracket:return false;
+            //Maybe this?
+//        }}else if(!getThis().isNum() && getThis().optr.isEleArith() && opt.isEleArith()) {
         }}else if(getThis().optr!=null && getThis().optr.isEleArith() && opt.isEleArith()) {
             getThis().optr = opt;
             return false;
@@ -205,6 +207,8 @@ public class StackEx {
     }
 
     private Integer fac(Integer i) throws Exception {
+        if (i==0)
+            return 0;
         if(i>12 || i<1)
             throw new Exception("out of factorial limit");
         return facc(i,1);
